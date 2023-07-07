@@ -19,7 +19,7 @@ public class MushroomEngage : EnemyBehavior
 
     public override void behaviorUpdate()
     {
-        print("engage");
+        // print("engage");
         var distance = Vector3.Distance(enemyData.target.position, transform.position);
         Vector3 direction = (enemyData.target.position - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));

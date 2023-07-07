@@ -17,7 +17,7 @@ public class MushroomAttack : EnemyBehavior
 
     public override void behaviorUpdate()
     {
-        print("attack");
+        // print("attack");
         var stateInfo = enemyData.animator.GetCurrentAnimatorStateInfo(0);
         if (stateInfo.normalizedTime >= 1.0f)
         {
