@@ -7,7 +7,8 @@ public class HeroState : MonoBehaviour
 {
     public Animator animator;
     public RigBuilder rigbuilder;
-    public GameObject HeroAimObject;
+    public GameObject HeroAimObject, ridePosObj;
+
     public enum HeroCurrentState
     {
         Idle,
@@ -64,6 +65,12 @@ public class HeroState : MonoBehaviour
         animator.SetBool("Stand", false);
         animator.SetBool("Ride", false);
         rigbuilder.enabled = false;
+
+        print(Vector3.Distance(transform.position, ridePosObj.transform.position));
+        if (Vector3.Distance(transform.position, ridePosObj.transform.position) < 3.0f)
+        {
+            state = HeroCurrentState.Ride;
+        }
     }
 
     void Aim()
@@ -100,5 +107,10 @@ public class HeroState : MonoBehaviour
         animator.SetBool("Stand", false);
         animator.SetBool("Ride", true);
         rigbuilder.enabled = false;
+
+        transform.position = ridePosObj.transform.position;
+        transform.rotation = ridePosObj.transform.rotation;
     }
+
+
 }
