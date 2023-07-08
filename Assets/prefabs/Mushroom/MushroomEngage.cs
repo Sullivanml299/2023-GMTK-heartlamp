@@ -7,6 +7,8 @@ public class MushroomEngage : EnemyBehavior
     public float deaggroRange = 20f;
     public float attackRange = 2.0f;
     public float runSpeed = 10.0f;
+
+    bool Grounded = false;
     public override void behaviorEnter()
     {
         enemyData.animator.SetBool("run", true);
@@ -19,6 +21,7 @@ public class MushroomEngage : EnemyBehavior
 
     public override void behaviorUpdate()
     {
+
         // print("engage");
         var distance = Vector3.Distance(enemyData.target.position, transform.position);
         Vector3 direction = (enemyData.target.position - transform.position).normalized;
@@ -27,8 +30,24 @@ public class MushroomEngage : EnemyBehavior
         else if (distance < attackRange) enemyData.controller.setState(EnemyState.attack);
         else
         {
+            // if (Grounded) enemyData.rigidbody.MovePosition(transform.position + direction * runSpeed * Time.deltaTime);
             enemyData.rigidbody.MovePosition(transform.position + direction * runSpeed * Time.deltaTime);
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            Grounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            Grounded = false;
+        }
+    }
 }

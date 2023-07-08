@@ -10,6 +10,8 @@ public class BearAttack : EnemyBehavior
     public LayerMask mask;
     public float force = 10.0f;
     public float attackRange = 2.0f;
+    public float maxAttackAngle = 45.0f;
+    public float turnSpeed = 10.0f;
 
     public Transform leftPaw, rightPaw;
     public GameObject shockwavePrefab;
@@ -46,10 +48,19 @@ public class BearAttack : EnemyBehavior
             hitObjects.Clear();
             usedShockwave = false;
             attackIndex = Random.Range(0, attackList.Count);
-            enemyData.animator.Play(attackList[attackIndex], 0, 0.0f);
+
             if (Vector3.Distance(enemyData.target.position, transform.position) > attackRange)
             {
                 enemyData.controller.setState(EnemyState.engage);
+            }
+            if (!isFacingTarget())
+            {
+                Vector3 direction = (enemyData.target.position - transform.position).normalized;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z)), Time.deltaTime * turnSpeed);
+            }
+            else
+            {
+                enemyData.animator.Play(attackList[attackIndex], 0, 0.0f);
             }
         }
         else
@@ -57,6 +68,13 @@ public class BearAttack : EnemyBehavior
             if (attackIndex <= 1) hitCheck();
             else if (!usedShockwave) GroundPound();
         }
+    }
+
+    bool isFacingTarget()
+    {
+        Vector3 direction = (enemyData.target.position - transform.position).normalized;
+        float angle = Vector3.Angle(direction, transform.forward);
+        return angle < maxAttackAngle;
     }
 
     void GroundPound()
@@ -100,6 +118,11 @@ public class BearAttack : EnemyBehavior
                     print("hit: " + c.name);
                     float finalForce = force * rb.mass;
                     rb.AddForce(((c.transform.position - transform.position).normalized + Vector3.up) * finalForce, ForceMode.Impulse);
+                }
+                EnemyController ec;
+                if (c.TryGetComponent<EnemyController>(out ec))
+                {
+                    ec.takeDamage(1);
                 }
             }
 

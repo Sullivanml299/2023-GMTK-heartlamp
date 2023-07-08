@@ -2008,7 +2008,7 @@ GameObject:
   - component: {fileID: 3136255740388330165}
   m_Layer: 0
   m_Name: Bear_4
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2108,7 +2108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d263426c3b42cf0488b4874faee60aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 20
+  aggroRange: 50
 --- !u!114 &1630187299674852721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2121,9 +2121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6b8b2e2a61a97468d4b1a10ed4a855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deaggroRange: 50
+  deaggroRange: 60
   attackRange: 15
-  runSpeed: 15
+  runSpeed: 25
+  maxEngageAngle: 25
+  turnSpeed: 10
 --- !u!114 &3136255740388330165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2145,8 +2147,13 @@ MonoBehaviour:
     m_Bits: 1
   force: 10
   attackRange: 15
+  maxAttackAngle: 10
+  turnSpeed: 10
   leftPaw: {fileID: 2198820362001353089}
   rightPaw: {fileID: 8084967453877227313}
+  shockwavePrefab: {fileID: 8405270221150902567, guid: 8f0b8881ab038b047b9ade875632e53f,
+    type: 3}
+  shockwaveOffset: {x: 8.72, y: 0.5, z: 0.3}
 --- !u!1 &8002475675295336084
 GameObject:
   m_ObjectHideFlags: 0

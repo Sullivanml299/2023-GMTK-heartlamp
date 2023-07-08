@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 785641884141913577}
   - component: {fileID: 4922208212874295539}
   - component: {fileID: 6195962632657531316}
+  - component: {fileID: 5180474256340935662}
   m_Layer: 0
   m_Name: MushroomMonster
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   - {fileID: 4627633284843166}
   - {fileID: 4110470248468810}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
 --- !u!54 &6804512905254938427
 Rigidbody:
@@ -126,7 +127,7 @@ MonoBehaviour:
   engageBehavior: {fileID: 785641884141913577}
   attackBehavior: {fileID: 6195962632657531316}
   damageBehavior: {fileID: 0}
-  deathBehavior: {fileID: 0}
+  deathBehavior: {fileID: 5180474256340935662}
 --- !u!114 &785641884141913577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deaggroRange: 10
   attackRange: 2
-  runSpeed: 20
+  runSpeed: 5
 --- !u!114 &4922208212874295539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +175,20 @@ MonoBehaviour:
     m_Bits: 1
   force: 3
   attackRange: 2
+--- !u!114 &5180474256340935662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382258774799692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c812222c957f04c8a05a53e1cd7f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puffPrefab: {fileID: 3137937995397708688, guid: 3b9ac98a016de3945973d46d924a3eac,
+    type: 3}
 --- !u!1 &1643898645384686
 GameObject:
   m_ObjectHideFlags: 0

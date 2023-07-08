@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public EnemyBehavior attackBehavior;
     public EnemyBehavior damageBehavior;
     public EnemyBehavior deathBehavior;
+    public float hp = 1f;
     private EnemyData enemyData;
     private EnemyBehavior currentBehavior;
 
@@ -23,11 +24,11 @@ public class EnemyController : MonoBehaviour
         enemyData.rigidbody = GetComponent<Rigidbody>();
         enemyData.controller = this;
 
-        idleBehavior.setEnemyData(enemyData);
-        engageBehavior.setEnemyData(enemyData);
-        attackBehavior.setEnemyData(enemyData);
-        // damageBehavior.setEnemyData(enemyData);
-        // deathBehavior.setEnemyData(enemyData);
+        if (idleBehavior != null) idleBehavior.setEnemyData(enemyData);
+        if (engageBehavior != null) engageBehavior.setEnemyData(enemyData);
+        if (attackBehavior != null) attackBehavior.setEnemyData(enemyData);
+        if (damageBehavior != null) damageBehavior.setEnemyData(enemyData);
+        if (deathBehavior != null) deathBehavior.setEnemyData(enemyData);
 
         currentBehavior = idleBehavior;
     }
@@ -36,6 +37,10 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         currentBehavior.behaviorUpdate();
+        if (hp <= 0 && currentBehavior != deathBehavior)
+        {
+            setState(EnemyState.death);
+        }
     }
 
     public void setState(EnemyState newState)
@@ -66,8 +71,14 @@ public class EnemyController : MonoBehaviour
 
         currentBehavior.behaviorEnter();
     }
-
+    public void takeDamage(float damage)
+    {
+        hp -= damage;
+        // setState(EnemyState.damage);
+    }
 }
+
+
 
 public enum EnemyState
 {

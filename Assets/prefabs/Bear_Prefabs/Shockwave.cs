@@ -7,7 +7,10 @@ public class Shockwave : MonoBehaviour
     public float speed = 1.0f;
     [Range(0, 1)]
     public float t = 0;
+    public float force = 10.0f;
     Material mat;
+
+    HashSet<Collider> hitObjects = new HashSet<Collider>();
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,32 @@ public class Shockwave : MonoBehaviour
         if (t >= 1.0f)
         {
             Destroy(gameObject);
+        }
+
+        foreach (var obj in hitObjects)
+        {
+            if (obj == null) continue;
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Boss") return;
+
+        if (!hitObjects.Contains(other))
+        {
+            hitObjects.Add(other);
+            var rb = other.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddForce(((other.transform.position - transform.position).normalized + Vector3.up) * force, ForceMode.Impulse);
+            }
+            EnemyController ec;
+            if (other.TryGetComponent<EnemyController>(out ec))
+            {
+                ec.takeDamage(1);
+            }
         }
     }
 }
