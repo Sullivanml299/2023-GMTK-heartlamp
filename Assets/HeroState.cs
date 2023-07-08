@@ -7,6 +7,7 @@ public class HeroState : MonoBehaviour
 {
     public Animator animator;
     public RigBuilder rigbuilder;
+    public GameObject HeroAimObject;
     public enum HeroCurrentState
     {
         Idle,
@@ -25,6 +26,9 @@ public class HeroState : MonoBehaviour
         animator.SetBool("Aim", false);
         animator.SetBool("Stand", false);
         animator.SetBool("Ride", false);
+
+        HeroAimObject.TryGetComponent<heroAim>(out heroAim heroAimScript);
+        heroAimScript.enabled = false;
     }
 
     // Update is called once per frame
