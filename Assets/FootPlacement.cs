@@ -34,13 +34,13 @@ public class FootPlacement : MonoBehaviour
     {
         if (Input.GetAxis("Vertical") > 0.8)
         {
-            print(Input.GetAxis("Vertical"));
+            //print(Input.GetAxis("Vertical"));
             footAimDir = transform.forward; //Random.Range(0.5f,2);
             stepDistance = stepDistanceMax; 
         }
         else if (Input.GetAxis("Vertical") < -0.8)
         {
-            print(Input.GetAxis("Vertical"));
+            //print(Input.GetAxis("Vertical"));
             footAimDir = -transform.forward; //Random.Range(0.5f, 2);
             stepDistance = stepDistanceMax;
         }
