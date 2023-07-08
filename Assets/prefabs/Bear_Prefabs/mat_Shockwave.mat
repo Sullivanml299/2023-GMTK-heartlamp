@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shockwave
+  m_Name: mat_Shockwave
   m_Shader: {fileID: 4800000, guid: 4ee47b20779df0d43b585eee49d1bf16, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -124,15 +124,15 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _WaveDistance: 0.14
-    - _WaveWidth: 0.11
+    - _WaveDistance: 0
+    - _WaveWidth: 0.1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LeadingColor: {r: 1, g: 0, b: 0, a: 1}
+    - _LeadingColor: {r: 0, g: 0.5511079, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _TrailingColor: {r: 1, g: 0, b: 0.9684267, a: 1}
+    - _TrailingColor: {r: 0.23584908, g: 0.23489551, b: 0.23581916, a: 1}
   m_BuildTextureStacks: []
