@@ -12,10 +12,12 @@ public class BearAttack : EnemyBehavior
     public float attackRange = 2.0f;
 
     public Transform leftPaw, rightPaw;
+    public GameObject shockwavePrefab;
+    public Vector3 shockwaveOffset;
 
     int attackIndex;
+    bool usedShockwave = false;
     HashSet<Transform> hitObjects = new HashSet<Transform>();
-
     List<string> attackList = new List<string> {
         "Attack1", //right horizontal swing
         "Attack2", //left horizontal swing
@@ -25,6 +27,7 @@ public class BearAttack : EnemyBehavior
     public override void behaviorEnter()
     {
         hitObjects.Clear();
+        usedShockwave = false;
         attackIndex = Random.Range(0, attackList.Count);
         enemyData.animator.Play(attackList[attackIndex], 0, 0.0f);
     }
@@ -41,6 +44,7 @@ public class BearAttack : EnemyBehavior
         if (stateInfo.normalizedTime >= 1.0f)
         {
             hitObjects.Clear();
+            usedShockwave = false;
             attackIndex = Random.Range(0, attackList.Count);
             enemyData.animator.Play(attackList[attackIndex], 0, 0.0f);
             if (Vector3.Distance(enemyData.target.position, transform.position) > attackRange)
@@ -50,13 +54,22 @@ public class BearAttack : EnemyBehavior
         }
         else
         {
-            if (attackIndex <= 2) hitCheck();
-            else GroundPound();
+            if (attackIndex <= 1) hitCheck();
+            else if (!usedShockwave) GroundPound();
         }
     }
 
     void GroundPound()
     {
+        if (enemyData.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.5f)
+        {
+            var offset = transform.forward * shockwaveOffset.x +
+                     transform.up * shockwaveOffset.y +
+                     transform.right * shockwaveOffset.z;
+            var shockwave = Instantiate(shockwavePrefab, transform.position + offset, Quaternion.identity);
+            if (shockwave.transform.position.y < 0.1f) shockwave.transform.position = new Vector3(shockwave.transform.position.x, 0.1f, shockwave.transform.position.z);
+            usedShockwave = true;
+        }
 
     }
 
@@ -95,10 +108,19 @@ public class BearAttack : EnemyBehavior
 
     void OnDrawGizmos()
     {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        Gizmos.color = Color.green;
+        var offset = transform.forward * shockwaveOffset.x +
+                     transform.up * shockwaveOffset.y +
+                     transform.right * shockwaveOffset.z;
+        Gizmos.DrawSphere(transform.position + offset, 0.1f);
+
         Transform paw = rightPaw;
         Vector3 hitboxSize = rightHitboxSize;
         hitboxSize.Scale(paw.lossyScale);
-        var offset = paw.forward * rightOffset.x +
+        offset = paw.forward * rightOffset.x +
                      paw.up * rightOffset.y +
                      paw.right * rightOffset.z;
 
@@ -116,5 +138,6 @@ public class BearAttack : EnemyBehavior
 
         Gizmos.matrix = Matrix4x4.TRS(paw.position + offset, paw.rotation, Vector3.one);
         Gizmos.DrawWireCube(Vector3.zero, hitboxSize);
+
     }
 }
