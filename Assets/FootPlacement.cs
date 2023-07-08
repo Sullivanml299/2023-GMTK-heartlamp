@@ -28,7 +28,7 @@ public class FootPlacement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics.Raycast(transform.position, -transform.up + transform.forward, out hit, 3.0f))
+        if (Physics.Raycast(transform.position, -transform.up + (transform.forward/Random.RandomRange(1,2)), out hit, 3.0f))
         {
             footTarget = hit.point;
         }
