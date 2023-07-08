@@ -30,24 +30,8 @@ public class MushroomEngage : EnemyBehavior
         else if (distance < attackRange) enemyData.controller.setState(EnemyState.attack);
         else
         {
-            // if (Grounded) enemyData.rigidbody.MovePosition(transform.position + direction * runSpeed * Time.deltaTime);
             enemyData.rigidbody.MovePosition(transform.position + direction * runSpeed * Time.deltaTime);
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            Grounded = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            Grounded = false;
-        }
-    }
 }
