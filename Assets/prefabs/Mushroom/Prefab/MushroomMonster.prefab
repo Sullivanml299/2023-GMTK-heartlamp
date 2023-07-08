@@ -167,6 +167,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208c733e3de2a0242a236ef0810d6711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yOffset: 0.5
+  hitboxSize: {x: 1, y: 1, z: 1}
+  mask:
+    serializedVersion: 2
+    m_Bits: 1
+  force: 3
+  attackRange: 2
 --- !u!1 &1643898645384686
 GameObject:
   m_ObjectHideFlags: 0
