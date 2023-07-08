@@ -12,6 +12,10 @@ GameObject:
   - component: {fileID: 6804512905254938427}
   - component: {fileID: 4776932589300951553}
   - component: {fileID: 6405717095395239962}
+  - component: {fileID: 2508158583996919534}
+  - component: {fileID: 785641884141913577}
+  - component: {fileID: 4922208212874295539}
+  - component: {fileID: 6195962632657531316}
   m_Layer: 0
   m_Name: MushroomMonster
   m_TagString: Untagged
@@ -60,9 +64,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &4776932589300951553
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -105,6 +109,71 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2508158583996919534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382258774799692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1e52264790db54fadb160ef016e821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6405717095395239962}
+  idleBehavior: {fileID: 4922208212874295539}
+  engageBehavior: {fileID: 785641884141913577}
+  attackBehavior: {fileID: 6195962632657531316}
+  damageBehavior: {fileID: 0}
+  deathBehavior: {fileID: 0}
+--- !u!114 &785641884141913577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382258774799692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6696a07708f071b4295563aa01228265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deaggroRange: 10
+  attackRange: 2
+  runSpeed: 20
+--- !u!114 &4922208212874295539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382258774799692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11deb4e68d33de44ba7730b06cebeb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aggroRange: 5
+--- !u!114 &6195962632657531316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382258774799692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208c733e3de2a0242a236ef0810d6711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: 0.5
+  hitboxSize: {x: 1, y: 1, z: 1}
+  mask:
+    serializedVersion: 2
+    m_Bits: 1
+  force: 3
+  attackRange: 2
 --- !u!1 &1643898645384686
 GameObject:
   m_ObjectHideFlags: 0
