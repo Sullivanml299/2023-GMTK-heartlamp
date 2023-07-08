@@ -5,7 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+<<<<<<< HEAD
+  - Boss
+  - Ground
+=======
   - Enemy
+>>>>>>> aa0d50f6e29e6e1f6aeda03deec14dcd94149bbc
   layers:
   - Default
   - TransparentFX
