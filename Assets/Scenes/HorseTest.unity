@@ -4979,7 +4979,7 @@ GameObject:
   - component: {fileID: 2671454798981439315}
   m_Layer: 0
   m_Name: Tree Distant
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6724,7 +6724,7 @@ GameObject:
   - component: {fileID: 3499111682927197189}
   m_Layer: 0
   m_Name: BillboardBush-MeshCarrier_05_MBall-Take2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -38,6 +38,12 @@ public class ArrowProjectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (arrowRigidbody.velocity.magnitude < 3)
+        {
+            Destroy(gameObject);
+        }
+
         /*
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
@@ -59,7 +65,7 @@ public class ArrowProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
         // if (other.GetComponent<BulletTarget>() != null)
         // {
         //     //hit enemy
