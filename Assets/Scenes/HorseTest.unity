@@ -329,11 +329,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentFootPlace: {x: 0, y: 0, z: 0}
   footTarget: {x: 0, y: 0, z: 0}
+  footAimDir: {x: 0, y: 0, z: 0}
   stepSpd: 18
   stepDistance: 1.5
   moveTwd: 0
   transformObjectIK: {fileID: 186126211}
-  horse: {fileID: 0}
 --- !u!114 &357826855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,11 +443,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentFootPlace: {x: 0, y: 0, z: 0}
   footTarget: {x: 0, y: 0, z: 0}
+  footAimDir: {x: 0, y: 0, z: 0}
   stepSpd: 0
   stepDistance: 0
   moveTwd: 0
   transformObjectIK: {fileID: 0}
-  horse: {fileID: 0}
 --- !u!1 &514310675
 GameObject:
   m_ObjectHideFlags: 3
@@ -764,11 +764,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentFootPlace: {x: 0, y: 0, z: 0}
   footTarget: {x: 0, y: 0, z: 0}
+  footAimDir: {x: 0, y: 0, z: 0}
   stepSpd: 18
   stepDistance: 1.5
   moveTwd: 0
   transformObjectIK: {fileID: 1969261263}
-  horse: {fileID: 0}
 --- !u!114 &579149803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2332,11 +2332,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentFootPlace: {x: 0, y: 0, z: 0}
   footTarget: {x: 0, y: 0, z: 0}
+  footAimDir: {x: 0, y: 0, z: 0}
   stepSpd: 18
   stepDistance: 1.5
   moveTwd: 0
   transformObjectIK: {fileID: 1843304144}
-  horse: {fileID: 0}
 --- !u!114 &1411199209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2501,11 +2501,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentFootPlace: {x: 0, y: 0, z: 0}
   footTarget: {x: 0, y: 0, z: 0}
+  footAimDir: {x: 0, y: 0, z: 0}
   stepSpd: 18
-  stepDistance: 1.5
+  stepDistance: 2
   moveTwd: 0
   transformObjectIK: {fileID: 1745197496}
-  horse: {fileID: 0}
 --- !u!4 &1535057126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2639638324218457063, guid: b046690755cdefe41b9a34df276ef4fa,
