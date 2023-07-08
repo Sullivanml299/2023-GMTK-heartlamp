@@ -10,13 +10,13 @@ public class ArrowProjectile : MonoBehaviour
     [SerializeField] private Transform vfxHitEnemy;
     [SerializeField] private Transform vfxHitEnvironment;
     
-    [SerializeField] private float maxSpeed = 50f;
-    private Collider myCollider;
-   // public float bulletHitScan = hitScanLength;
+    [SerializeField] private float maxSpeed = 100f;
+    //private Collider myCollider;
+    // public float bulletHitScan = hitScanLength;
+    public float timeRemaining = 3;
 
-
-private void Awake() 
-{
+    private void Awake() 
+    {
         arrowRigidbody = GetComponent<Rigidbody>();
     }
 
@@ -27,8 +27,18 @@ private void Awake()
         float speed = maxSpeed;
         arrowRigidbody.velocity = transform.forward * speed;
     }
-    void FixedUpdate()
+    void Update()
     {
+
+        if (timeRemaining > 0)
+        {
+            timeRemaining -= Time.deltaTime;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        /*
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(transform.position, transform.forward, out hit, 10.0f))
@@ -44,11 +54,12 @@ private void Awake()
             }
 
         }
-        Debug.DrawRay(transform.position, transform.forward * 10.0f, Color.red);
+        Debug.DrawRay(transform.position, transform.forward * 10.0f, Color.red);*/
     }
 
     private void OnTriggerEnter(Collider other) 
     {
+        Destroy(gameObject);
         // if (other.GetComponent<BulletTarget>() != null)
         // {
         //     //hit enemy
@@ -61,7 +72,7 @@ private void Awake()
         //     //arrowRigidbody.velocity = transform.forward * 0f;
         //     Instantiate(vfxHitEnvironment, transform.position, Quaternion.identity);
         // }
-        
-       // Destroy(gameObject); 
+
+        // Destroy(gameObject); 
     }
 }
