@@ -59,7 +59,7 @@ public class hover : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                print("Jump!");
+                //print("Jump!");
 
                     hb.AddForceAtPosition(Vector3.up * jumpForce, transform.position, ForceMode.Force);
                 
@@ -68,16 +68,16 @@ public class hover : MonoBehaviour
         }
         else
         {
-            print("fall!");
+            //print("fall!");
             hb.AddForce(-Vector3.up * fallForce);
         }
 
 
-        if (Physics.Raycast(transform.position, transform.up, 0.2f))
+        if (Physics.Raycast(transform.position, transform.up, 0.5f))
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                print("Flip!");
+                //print("Flip!");
                 hb.AddForceAtPosition(Vector3.up * flipForce, transform.position + new Vector3(0, 0, 0.2f), ForceMode.Force);
             }
         }
