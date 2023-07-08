@@ -5,7 +5,7 @@ using UnityEngine;
 public class MushroomEngage : EnemyBehavior
 {
     public float deaggroRange = 20f;
-    public float attackRange = 5.0f;
+    public float attackRange = 2.0f;
     public float runSpeed = 10.0f;
     public override void behaviorEnter()
     {
