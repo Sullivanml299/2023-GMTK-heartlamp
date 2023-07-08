@@ -46,7 +46,7 @@ public class hover : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && !Physics.Raycast(transform.position, transform.up, 0.5f))
         {
             runMult = runMultMax;
         }
