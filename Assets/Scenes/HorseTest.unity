@@ -7845,7 +7845,7 @@ MonoBehaviour:
   bowDrawStart: {fileID: 4065156739539620173}
   bowDrawEnd: {fileID: 1892415871868816429}
   spawnArrowPosition: {fileID: 2734032057399226809}
-  arrowTarget: {fileID: 0}
+  arrowTarget: {fileID: 1634345734}
   pfArrow: {fileID: 7251600896144292641, guid: e5ab09867603b3545a484b342b31d37b, type: 3}
 --- !u!4 &8172790758401578422
 Transform:
