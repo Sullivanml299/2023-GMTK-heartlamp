@@ -10,9 +10,9 @@ public class FootPlacement : MonoBehaviour
 
     public Vector3 footAimDir;
 
-    public float stepSpd, stepDistance;
+    public float stepSpd, stepDistance, stepDistanceMax;
 
-    public bool moveTwd;
+    public bool moveTwd, frontLegs;
 
     public GameObject transformObjectIK;
     // Start is called before the first frame update
@@ -34,21 +34,35 @@ public class FootPlacement : MonoBehaviour
         {
             print(Input.GetAxis("Vertical"));
             footAimDir = transform.forward; //Random.Range(0.5f,2);
+            stepDistance = stepDistanceMax; 
         }
         else if (Input.GetAxis("Vertical") < -0.8)
         {
             print(Input.GetAxis("Vertical"));
             footAimDir = -transform.forward; //Random.Range(0.5f, 2);
+            stepDistance = stepDistanceMax;
         }
         else
         {
             footAimDir = Vector3.zero;
+            stepDistance = 1f;
         }
 
 
-            if (Physics.Raycast(transform.position, -transform.up + footAimDir, out hit, 3.0f))
+        if (Physics.Raycast(transform.position, -transform.up + footAimDir, out hit, 3.0f))
         {
             footTarget = hit.point;
+        }
+        else
+        {
+            if (frontLegs == true)
+            {
+                footTarget = transform.position + transform.forward * 2.0f;
+            }
+            else
+            {
+                footTarget = transform.position + -transform.forward * 2.0f;
+            }
         }
 
         if (Vector3.Distance(currentFootPlace, footTarget) > stepDistance)

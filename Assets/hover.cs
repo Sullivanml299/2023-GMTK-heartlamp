@@ -73,7 +73,7 @@ public class hover : MonoBehaviour
         }
 
 
-        if (Physics.Raycast(transform.position, transform.up, 0.2f))
+        if (Physics.Raycast(transform.position, transform.up, 0.5f))
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
