@@ -78,7 +78,7 @@ public class hover : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 //print("Flip!");
-                hb.AddForceAtPosition(Vector3.up * flipForce, transform.position + new Vector3(0.2f, 0.2f, 0f), ForceMode.Force);
+                hb.AddForceAtPosition(Vector3.up * flipForce, transform.position + new Vector3(0.18f, 0.2f, 0f), ForceMode.Force);
             }
         }
     }

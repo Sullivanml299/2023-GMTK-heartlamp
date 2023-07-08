@@ -5,7 +5,7 @@ using UnityEngine;
 public class TurnOnRider : MonoBehaviour
 {
     public GameObject rider, ragdoll;
-    public Rigidbody rb;
+    //public Rigidbody rb;
     public float horseAngle;
     // Start is called before the first frame update
     void Start()
@@ -30,5 +30,13 @@ public class TurnOnRider : MonoBehaviour
 
             rider.active = false;
         }
+
+
+    }
+
+
+    public void addRider()
+    {
+        rider.active = true;
     }
 }
