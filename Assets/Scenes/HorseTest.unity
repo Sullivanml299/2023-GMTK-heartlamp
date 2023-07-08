@@ -2555,6 +2555,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rider: {fileID: 9171305327150435271}
+  ragdoll: {fileID: 7070872530307263912, guid: d523bc0e839dbb24cab4dcf16872752e, type: 3}
+  rb: {fileID: 0}
+  horseAngle: 0
 --- !u!4 &1194495417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2639638324218457063, guid: b046690755cdefe41b9a34df276ef4fa,
@@ -7919,8 +7922,8 @@ MonoBehaviour:
         transform: {fileID: 0}
         weight: 0
     m_Offset: {x: 0, y: 0, z: 0}
-    m_MinLimit: -180
-    m_MaxLimit: 180
+    m_MinLimit: -24
+    m_MaxLimit: 58
     m_AimAxis: 1
     m_UpAxis: 2
     m_WorldUpType: 0

@@ -22,6 +22,7 @@ public GameObject arrowTarget;
     // Update is called once per frame
     void Update()
     {
+        //print(Vector3.Distance(arrowTarget.transform.position, transform.position));
         Vector3 aimDir = (arrowTarget.transform.position - spawnArrowPosition.transform.position).normalized;
 
         if (bowDrawn)
@@ -29,8 +30,8 @@ public GameObject arrowTarget;
            // var pullDistance = Vector3.Distance(bowDrawStart.transform.position, bowDraw)
             //transform.position += Vector3.back * (Time.deltaTime * 1f);
             transform.position = Vector3.Lerp(transform.position, bowDrawEnd.transform.position, Time.deltaTime * 20f);
-            
-            if(transform.position == bowDrawEnd.transform.position)
+
+            if (transform.position == bowDrawEnd.transform.position && Vector3.Distance(arrowTarget.transform.position, transform.position) < 60f)
             {
                 Instantiate(pfArrow, spawnArrowPosition.transform.position, Quaternion.LookRotation(aimDir,Vector3.up));
                 bowDrawn = false;
