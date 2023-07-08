@@ -335,6 +335,7 @@ MonoBehaviour:
   stepDistanceMax: 2
   moveTwd: 0
   frontLegs: 0
+  t: 0
   transformObjectIK: {fileID: 186126211}
 --- !u!114 &357826855
 MonoBehaviour:
@@ -451,6 +452,7 @@ MonoBehaviour:
   stepDistanceMax: 0
   moveTwd: 0
   frontLegs: 0
+  t: 0
   transformObjectIK: {fileID: 0}
 --- !u!1 &514310675
 GameObject:
@@ -862,6 +864,7 @@ MonoBehaviour:
   stepDistanceMax: 2
   moveTwd: 0
   frontLegs: 0
+  t: 0
   transformObjectIK: {fileID: 1969261263}
 --- !u!114 &579149803
 MonoBehaviour:
@@ -1894,7 +1897,7 @@ MonoBehaviour:
   turnTorque: 300
   hoverRayDist: 0
   runMult: 1
-  runMultMax: 2.4
+  runMultMax: 3
   jumpForce: 40000
   fallForce: 200
   flipForce: 10000
@@ -2478,6 +2481,7 @@ MonoBehaviour:
   stepDistanceMax: 2
   moveTwd: 0
   frontLegs: 1
+  t: 0
   transformObjectIK: {fileID: 1843304144}
 --- !u!114 &1411199209
 MonoBehaviour:
@@ -2649,6 +2653,7 @@ MonoBehaviour:
   stepDistanceMax: 2
   moveTwd: 0
   frontLegs: 1
+  t: 0
   transformObjectIK: {fileID: 1745197496}
 --- !u!4 &1535057126 stripped
 Transform:

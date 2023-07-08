@@ -14,6 +14,8 @@ public class FootPlacement : MonoBehaviour
 
     public bool moveTwd, frontLegs;
 
+    public float t;
+
     public GameObject transformObjectIK;
     // Start is called before the first frame update
     void Start()
@@ -45,7 +47,9 @@ public class FootPlacement : MonoBehaviour
         else
         {
             footAimDir = Vector3.zero;
-            stepDistance = 1f;
+            stepDistance = Mathf.Lerp(stepDistance, 0.9f, t);
+
+            t += 0.1f * Time.deltaTime;
         }
 
 
