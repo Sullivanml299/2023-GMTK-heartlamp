@@ -9,6 +9,7 @@ public class HeroState : MonoBehaviour
     public RigBuilder rigbuilder;
     public enum HeroCurrentState
     {
+        Idle,
         Wave,
         Ride,
         Aim,
@@ -20,7 +21,10 @@ public class HeroState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator.SetBool("Wave", false);
+        animator.SetBool("Aim", false);
+        animator.SetBool("Stand", false);
+        animator.SetBool("Ride", false);
     }
 
     // Update is called once per frame
@@ -31,11 +35,20 @@ public class HeroState : MonoBehaviour
 
         switch (state)
         {
+            case HeroCurrentState.Idle:
+                Idle();
+                break;
             case HeroCurrentState.Wave:
                 Wave();
                 break;
             case HeroCurrentState.Aim:
                 Aim();
+                break;
+            case HeroCurrentState.Stand:
+                Stand();
+                break;
+            case HeroCurrentState.Ride:
+                Ride();
                 break;
         }
     }
@@ -43,12 +56,45 @@ public class HeroState : MonoBehaviour
     void Wave()
     {
         animator.SetBool("Wave", true);
+        animator.SetBool("Aim", false);
+        animator.SetBool("Stand", false);
+        animator.SetBool("Ride", false);
         rigbuilder.enabled = false;
     }
 
     void Aim()
     {
         animator.SetBool("Wave", false);
+        animator.SetBool("Aim", true);
+        animator.SetBool("Stand", false);
+        animator.SetBool("Ride", false);
         rigbuilder.enabled = true;
+    }
+
+    void Stand()
+    {
+        animator.SetBool("Wave", false);
+        animator.SetBool("Aim", false);
+        animator.SetBool("Stand", true);
+        animator.SetBool("Ride", false);
+        rigbuilder.enabled = false;
+    }
+
+    void Idle()
+    {
+        animator.SetBool("Wave", false);
+        animator.SetBool("Aim", false);
+        animator.SetBool("Stand", false);
+        animator.SetBool("Ride", false);
+        rigbuilder.enabled = false;
+    }
+
+    void Ride()
+    {
+        animator.SetBool("Wave", false);
+        animator.SetBool("Aim", false);
+        animator.SetBool("Stand", false);
+        animator.SetBool("Ride", true);
+        rigbuilder.enabled = false;
     }
 }
