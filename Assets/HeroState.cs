@@ -7,15 +7,13 @@ public class HeroState : MonoBehaviour
 {
     public Animator animator;
     public RigBuilder rigbuilder;
-    public GameObject HeroAimObject, ridePosObj;
+    public GameObject HeroAimObject, player;
+
+    public TurnOnRider tor;
 
     public enum HeroCurrentState
     {
-        Idle,
         Wave,
-        Ride,
-        Aim,
-        Ragdoll,
         Stand,
     }
 
@@ -24,12 +22,14 @@ public class HeroState : MonoBehaviour
     void Start()
     {
         animator.SetBool("Wave", false);
-        animator.SetBool("Aim", false);
         animator.SetBool("Stand", false);
-        animator.SetBool("Ride", false);
 
         HeroAimObject.TryGetComponent<heroAim>(out heroAim heroAimScript);
         heroAimScript.enabled = false;
+
+        state = HeroCurrentState.Stand;
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -38,79 +38,37 @@ public class HeroState : MonoBehaviour
         //if (Input.GetKey(KeyCode.W)) { state = HeroCurrentState.Wave; print("W!"); }
         //if (Input.GetKey(KeyCode.A)) { state = HeroCurrentState.Aim; print("A!"); }
 
-        switch (state)
+        if (Vector3.Distance(transform.position, player.transform.position) < 3.0f)
         {
-            case HeroCurrentState.Idle:
-                Idle();
-                break;
-            case HeroCurrentState.Wave:
-                Wave();
-                break;
-            case HeroCurrentState.Aim:
-                Aim();
-                break;
-            case HeroCurrentState.Stand:
-                Stand();
-                break;
-            case HeroCurrentState.Ride:
-                Ride();
-                break;
+            player = GameObject.FindGameObjectWithTag("Player");
+            //state = HeroCurrentState.Ride;
+            tor = player.GetComponent<TurnOnRider>();
+            tor.addRider();
+
+            Destroy(gameObject);
         }
+
     }
 
     void Wave()
     {
         animator.SetBool("Wave", true);
-        animator.SetBool("Aim", false);
         animator.SetBool("Stand", false);
-        animator.SetBool("Ride", false);
         rigbuilder.enabled = false;
 
-        print(Vector3.Distance(transform.position, ridePosObj.transform.position));
-        if (Vector3.Distance(transform.position, ridePosObj.transform.position) < 3.0f)
-        {
-            state = HeroCurrentState.Ride;
-        }
+       // print(Vector3.Distance(transform.position, ridePosObj.transform.position));
+
     }
 
-    void Aim()
-    {
-        animator.SetBool("Wave", false);
-        animator.SetBool("Aim", true);
-        animator.SetBool("Stand", false);
-        animator.SetBool("Ride", false);
-        rigbuilder.enabled = true;
-    }
+  
 
     void Stand()
     {
         animator.SetBool("Wave", false);
-        animator.SetBool("Aim", false);
         animator.SetBool("Stand", true);
-        animator.SetBool("Ride", false);
         rigbuilder.enabled = false;
     }
 
-    void Idle()
-    {
-        animator.SetBool("Wave", false);
-        animator.SetBool("Aim", false);
-        animator.SetBool("Stand", false);
-        animator.SetBool("Ride", false);
-        rigbuilder.enabled = false;
-    }
-
-    void Ride()
-    {
-        animator.SetBool("Wave", false);
-        animator.SetBool("Aim", false);
-        animator.SetBool("Stand", false);
-        animator.SetBool("Ride", true);
-        rigbuilder.enabled = false;
-
-        transform.position = ridePosObj.transform.position;
-        transform.rotation = ridePosObj.transform.rotation;
-    }
 
 
 }
