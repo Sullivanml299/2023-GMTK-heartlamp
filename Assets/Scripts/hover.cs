@@ -73,13 +73,13 @@ public class hover : MonoBehaviour
         }
 
 
-        if (Physics.Raycast(transform.position, transform.up, 0.5f))
+        if (Physics.Raycast(transform.position, transform.up, 2f))
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
+            //if (Input.GetKeyDown(KeyCode.Space))
+           // {
                 //print("Flip!");
-                hb.AddForceAtPosition(Vector3.up * flipForce, transform.position + new Vector3(0.18f, 0.2f, 0f), ForceMode.Force);
-            }
+                hb.AddForceAtPosition(Vector3.up * flipForce, transform.position + new Vector3(0.018f, 0.02f, 0f), ForceMode.Force);
+            //}
         }
     }
 
