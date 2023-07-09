@@ -115,7 +115,7 @@ public class BearAttack : EnemyBehavior
                 if (c.TryGetComponent<Rigidbody>(out rb))
                 {
                     hitObjects.Add(c.transform);
-                    print("hit: " + c.name);
+                    print("attack hit: " + c.name);
                     float finalForce = force * rb.mass;
                     rb.AddForce(((c.transform.position - transform.position).normalized + Vector3.up) * finalForce, ForceMode.Impulse);
                 }

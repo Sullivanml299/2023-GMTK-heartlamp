@@ -11,8 +11,10 @@ public class EnemyController : MonoBehaviour
     public EnemyBehavior damageBehavior;
     public EnemyBehavior deathBehavior;
     public float hp = 1f;
+
     private EnemyData enemyData;
     private EnemyBehavior currentBehavior;
+
 
 
     // Start is called before the first frame update
@@ -76,7 +78,9 @@ public class EnemyController : MonoBehaviour
         hp -= damage;
         // setState(EnemyState.damage);
     }
+
 }
+
 
 
 

@@ -8,7 +8,6 @@ public class MushroomEngage : EnemyBehavior
     public float attackRange = 2.0f;
     public float runSpeed = 10.0f;
 
-    bool Grounded = false;
     public override void behaviorEnter()
     {
         enemyData.animator.SetBool("run", true);

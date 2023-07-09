@@ -9,12 +9,14 @@ public class Shockwave : MonoBehaviour
     public float t = 0;
     public float force = 10.0f;
     Material mat;
+    int bossLayer;
 
     HashSet<Collider> hitObjects = new HashSet<Collider>();
 
     // Start is called before the first frame update
     void Start()
     {
+        bossLayer = LayerMask.NameToLayer("Boss");
         mat = GetComponent<MeshRenderer>().material;
     }
 
@@ -37,15 +39,16 @@ public class Shockwave : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Boss") return;
+        if (other.gameObject.layer == bossLayer) return;
 
         if (!hitObjects.Contains(other))
         {
+            print("shockwave hit: " + other.name);
             hitObjects.Add(other);
             var rb = other.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.AddForce(((other.transform.position - transform.position).normalized + Vector3.up) * force, ForceMode.Impulse);
+                rb.AddForce(((other.transform.position - transform.position).normalized + Vector3.up) * force * rb.mass, ForceMode.Impulse);
             }
             EnemyController ec;
             if (other.TryGetComponent<EnemyController>(out ec))

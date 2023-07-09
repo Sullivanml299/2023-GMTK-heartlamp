@@ -121,3 +121,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   t: 0
+  force: 20

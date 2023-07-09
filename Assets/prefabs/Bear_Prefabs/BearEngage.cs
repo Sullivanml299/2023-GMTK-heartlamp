@@ -9,6 +9,8 @@ public class BearEngage : EnemyBehavior
     public float runSpeed = 10.0f;
     public float maxEngageAngle = 25.0f;
     public float turnSpeed = 10.0f;
+    public CharacterController controller;
+    public float gravity = -9.8f;
     public override void behaviorEnter()
     {
         enemyData.animator.SetBool("Run Forward", true);
@@ -31,7 +33,9 @@ public class BearEngage : EnemyBehavior
             if (isFacingTarget())
             {
                 transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-                enemyData.rigidbody.MovePosition(transform.position + direction * runSpeed * Time.deltaTime);
+                // enemyData.rigidbody.MovePosition(transform.position + direction * runSpeed * Time.deltaTime);
+                Vector3 vel = direction * runSpeed;// * Time.deltaTime
+                controller.Move(vel * Time.deltaTime);
             }
             else
             {
