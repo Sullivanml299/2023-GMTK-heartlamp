@@ -130,6 +130,8 @@ MonoBehaviour:
   damageBehavior: {fileID: 0}
   deathBehavior: {fileID: 5180474256340935662}
   hp: 1
+  meshRenderer: {fileID: 137209656802228900}
+  flashTime: 0.1
 --- !u!114 &785641884141913577
 MonoBehaviour:
   m_ObjectHideFlags: 0

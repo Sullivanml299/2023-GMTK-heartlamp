@@ -94,6 +94,7 @@ public class ArrowProjectile : MonoBehaviour
 
             if (ec.tag == "Enemy") ec.applyForce(direction * hitForce);
 
+            Destroy(gameObject);
         }
 
     }

@@ -28,8 +28,11 @@ public class heroAim : MonoBehaviour
             return;
         }
 
+        print(arrowTarget.gameObject.tag);
+        print(arrowTarget.target.name);
         //print(Vector3.Distance(arrowTarget.transform.position, transform.position));
-        Vector3 aimDir = (arrowTarget.transform.position - spawnArrowPosition.transform.position).normalized;
+        var targetPosition = arrowTarget.target.gameObject.tag == "Boss" ? arrowTarget.transform.position + Vector3.up * 8f : arrowTarget.transform.position;
+        Vector3 aimDir = (targetPosition - spawnArrowPosition.transform.position).normalized;
 
         if (bowDrawn)
         {

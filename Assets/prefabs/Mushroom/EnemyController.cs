@@ -11,10 +11,12 @@ public class EnemyController : MonoBehaviour
     public EnemyBehavior damageBehavior;
     public EnemyBehavior deathBehavior;
     public float hp = 1f;
+    public SkinnedMeshRenderer meshRenderer;
+    public float flashTime = 0.1f;
 
     private EnemyData enemyData;
     private EnemyBehavior currentBehavior;
-
+    private Color baseColor;
 
 
 
@@ -34,6 +36,7 @@ public class EnemyController : MonoBehaviour
         if (deathBehavior != null) deathBehavior.setEnemyData(enemyData);
 
         currentBehavior = idleBehavior;
+        baseColor = meshRenderer.material.color;
     }
 
     // Update is called once per frame
@@ -79,6 +82,9 @@ public class EnemyController : MonoBehaviour
     {
         hp -= damage;
         // setState(EnemyState.damage);
+        StopAllCoroutines();
+        meshRenderer.material.color = baseColor;
+        StartCoroutine(flashRed());
     }
 
     public void applyForce(Vector3 force)
@@ -86,6 +92,26 @@ public class EnemyController : MonoBehaviour
 
         if (enemyData.rigidbody != null && !enemyData.rigidbody.isKinematic)
             enemyData.rigidbody.AddForce(force);
+    }
+
+    IEnumerator flashRed()
+    {
+        Color targetColor = Color.red;
+        Color currentColor = meshRenderer.material.color;
+        float t = 0;
+        while (t < flashTime)
+        {
+            t += Time.deltaTime;
+            meshRenderer.material.color = Color.Lerp(currentColor, targetColor, t / flashTime);
+            yield return null;
+        }
+        t = 0;
+        while (t < flashTime)
+        {
+            t += Time.deltaTime;
+            meshRenderer.material.color = Color.Lerp(targetColor, currentColor, t / flashTime);
+            yield return null;
+        }
     }
 
 }
