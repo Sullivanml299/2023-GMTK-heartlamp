@@ -38,6 +38,7 @@ public class Ground : MonoBehaviour
             {
                 controller.Move(new Vector3(0, -hit.distance + targetDistance, 0));
             }
+            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
         }
     }
 
