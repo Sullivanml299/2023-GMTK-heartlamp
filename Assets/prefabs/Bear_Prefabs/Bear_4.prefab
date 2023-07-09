@@ -2290,7 +2290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d263426c3b42cf0488b4874faee60aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 50
+  aggroRange: 70
 --- !u!114 &1630187299674852721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2303,7 +2303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6b8b2e2a61a97468d4b1a10ed4a855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deaggroRange: 60
+  deaggroRange: 90
   attackRange: 15
   runSpeed: 50
   maxEngageAngle: 25
@@ -2328,7 +2328,7 @@ MonoBehaviour:
   rightHitboxSize: {x: 0.9, y: 0.9, z: 0.9}
   mask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 4294967295
   force: 10
   attackRange: 15
   maxAttackAngle: 10

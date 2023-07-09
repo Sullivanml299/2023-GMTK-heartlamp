@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6195962632657531316}
   - component: {fileID: 5180474256340935662}
   - component: {fileID: 5756877565324583709}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: MushroomMonster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4394660107652072}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Dummy001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4179035465635902}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Bone003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4110470248468810}
   - component: {fileID: 137209656802228900}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: MushroomMon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4431334866412094}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Bone002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4627633284843166}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
