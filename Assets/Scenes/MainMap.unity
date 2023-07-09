@@ -10526,6 +10526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5357107639403280608, guid: f5b41ba4c79702547a89de7544b80656,
         type: 3}
+      propertyPath: hp
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357107639403280608, guid: f5b41ba4c79702547a89de7544b80656,
+        type: 3}
       propertyPath: groundDistance
       value: 25.79
       objectReference: {fileID: 0}
@@ -10589,7 +10594,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear_4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8559806561890331238, guid: f5b41ba4c79702547a89de7544b80656,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8559806561890331238, guid: f5b41ba4c79702547a89de7544b80656, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -48436,6 +48447,7 @@ MonoBehaviour:
   enemies: []
   target: {fileID: 0}
   hero: {fileID: 9171305327150435271}
+  boss: {fileID: 0}
 --- !u!4 &1634345736
 Transform:
   m_ObjectHideFlags: 0

@@ -6,13 +6,14 @@ using UnityEngine.Animations.Rigging;
 public class FindTarget : MonoBehaviour
 {
     public GameObject[] enemies;
-    public GameObject target, hero;
+    public GameObject target, hero,boss;
 
     // Start is called before the first frame update
 
     void Start()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        boss = GameObject.FindGameObjectWithTag("Boss");
         hero = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -34,20 +35,29 @@ public class FindTarget : MonoBehaviour
 
         float lowestDist = Mathf.Infinity;
 
-
-        for (int i = 0; i < enemies.Length; i++)
+        if (boss == null || Vector3.Distance(boss.transform.position, hero.transform.position) > 60f)
         {
-            var enemy = enemies[i];
-            if (enemy == null)
-                continue;
-
-            float dist = Vector3.Distance(enemy.transform.position, hero.transform.position);
-
-            if (dist < lowestDist)
+            for (int i = 0; i < enemies.Length; i++)
             {
-                lowestDist = dist;
-                target = enemy;
+                var enemy = enemies[i];
+                if (enemy == null)
+                    continue;
+
+                float dist = Vector3.Distance(enemy.transform.position, hero.transform.position);
+
+                if (dist < lowestDist)
+                {
+                    lowestDist = dist;
+                    target = enemy;
+                }
+
             }
+        }
+        
+        else
+        {
+
+            target = boss;
 
         }
 
