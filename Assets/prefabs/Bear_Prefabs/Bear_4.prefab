@@ -2182,6 +2182,8 @@ GameObject:
   - component: {fileID: 6931361846956136296}
   - component: {fileID: 1630187299674852721}
   - component: {fileID: 3136255740388330165}
+  - component: {fileID: 8559806561890331238}
+  - component: {fileID: 9215624767928096746}
   m_Layer: 6
   m_Name: Bear_4
   m_TagString: Boss
@@ -2204,7 +2206,7 @@ Transform:
   - {fileID: 1838717086156636650}
   - {fileID: 8036338751982688932}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: -203.71999, z: 0}
 --- !u!95 &3734775969355451150
 Animator:
@@ -2250,7 +2252,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2300,9 +2302,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deaggroRange: 60
   attackRange: 15
-  runSpeed: 25
+  runSpeed: 50
   maxEngageAngle: 25
   turnSpeed: 10
+  controller: {fileID: 9215624767928096746}
+  gravity: -9.8
 --- !u!114 &3136255740388330165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2331,6 +2335,49 @@ MonoBehaviour:
   shockwavePrefab: {fileID: 8405270221150902567, guid: 8f0b8881ab038b047b9ade875632e53f,
     type: 3}
   shockwaveOffset: {x: 8.72, y: 0.5, z: 0.3}
+--- !u!114 &8559806561890331238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962199819078159310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead2062001e6ac8438c60dec16d40d7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castOriginOffset: 0.5
+  castDistance: 5
+  distanceThreshold: 0.1
+  targetDistance: 0.5
+  controller: {fileID: 0}
+--- !u!143 &9215624767928096746
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962199819078159310}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.85
+  m_Radius: 0.9
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.94, z: 0}
 --- !u!1 &8002475675295336084
 GameObject:
   m_ObjectHideFlags: 0

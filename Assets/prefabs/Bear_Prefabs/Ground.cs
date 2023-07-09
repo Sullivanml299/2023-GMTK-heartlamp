@@ -4,24 +4,47 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
+
+    public float castOriginOffset = 0.5f;
+    public float castDistance = 5f;
+    public float distanceThreshold = 0.1f;
+    public float targetDistance = 0.5f;
     public CharacterController controller;
     RaycastHit hit;
+    Terrain terrain;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        if (terrain == null)
+        {
+            terrain = Terrain.activeTerrain;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!controller.isGrounded)
+        float playerPositionCalculatedY = transform.position.y - Terrain.activeTerrain.SampleHeight(transform.position);
+        if (playerPositionCalculatedY < 0)
         {
-            print("not grounded");
+            float pushHeight = 1 - playerPositionCalculatedY;
+            transform.position += new Vector3(0, pushHeight, 0);
         }
 
+        if (Physics.Raycast(transform.position + transform.up * castOriginOffset, -transform.up, out hit, castDistance))
+        {
+            if (hit.distance > targetDistance)
+            {
+                controller.Move(new Vector3(0, -hit.distance + targetDistance, 0));
+            }
+        }
+    }
 
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position + transform.up * castOriginOffset, -transform.up * castDistance);
     }
 
 }
