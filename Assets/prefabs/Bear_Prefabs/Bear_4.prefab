@@ -2182,6 +2182,9 @@ GameObject:
   - component: {fileID: 6931361846956136296}
   - component: {fileID: 1630187299674852721}
   - component: {fileID: 3136255740388330165}
+  - component: {fileID: 8559806561890331238}
+  - component: {fileID: -5131260407851614634}
+  - component: {fileID: 9215624767928096746}
   m_Layer: 6
   m_Name: Bear_4
   m_TagString: Boss
@@ -2249,8 +2252,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2271,7 +2274,7 @@ MonoBehaviour:
   engageBehavior: {fileID: 1630187299674852721}
   attackBehavior: {fileID: 3136255740388330165}
   damageBehavior: {fileID: 0}
-  deathBehavior: {fileID: 0}
+  deathBehavior: {fileID: -5131260407851614634}
   hp: 1
 --- !u!114 &6931361846956136296
 MonoBehaviour:
@@ -2300,9 +2303,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deaggroRange: 60
   attackRange: 15
-  runSpeed: 25
+  runSpeed: 50
   maxEngageAngle: 25
   turnSpeed: 10
+  controller: {fileID: 9215624767928096746}
+  gravity: -9.8
 --- !u!114 &3136255740388330165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2317,8 +2322,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftOffset: {x: 0.04, y: -0.62, z: 0.83}
   rightOffset: {x: -0.07, y: 0.64, z: -0.8}
-  leftHitboxSize: {x: 0.8, y: 0.3, z: 0.6}
-  rightHitboxSize: {x: 0.8, y: 0.3, z: 0.6}
+  leftHitboxSize: {x: 0.9, y: 0.5, z: 0.7}
+  rightHitboxSize: {x: 0.9, y: 0.5, z: 0.7}
   mask:
     serializedVersion: 2
     m_Bits: 1
@@ -2331,6 +2336,62 @@ MonoBehaviour:
   shockwavePrefab: {fileID: 8405270221150902567, guid: 8f0b8881ab038b047b9ade875632e53f,
     type: 3}
   shockwaveOffset: {x: 8.72, y: 0.5, z: 0.3}
+--- !u!114 &8559806561890331238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962199819078159310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead2062001e6ac8438c60dec16d40d7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castOriginOffset: 0.5
+  castDistance: 50
+  distanceThreshold: 0.1
+  targetDistance: 0.5
+  controller: {fileID: 9215624767928096746}
+--- !u!114 &-5131260407851614634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962199819078159310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f305b73a676e2742ac8b6a0e36500d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puffPrefab: {fileID: 0}
+--- !u!143 &9215624767928096746
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962199819078159310}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.85
+  m_Radius: 0.9
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.94, z: 0}
 --- !u!1 &8002475675295336084
 GameObject:
   m_ObjectHideFlags: 0

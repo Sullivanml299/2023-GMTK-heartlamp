@@ -41,6 +41,7 @@ public class EnemyController : MonoBehaviour
         currentBehavior.behaviorUpdate();
         if (hp <= 0 && currentBehavior != deathBehavior)
         {
+            print("death");
             setState(EnemyState.death);
         }
     }

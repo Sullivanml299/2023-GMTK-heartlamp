@@ -18,6 +18,7 @@ public class Shockwave : MonoBehaviour
     {
         bossLayer = LayerMask.NameToLayer("Boss");
         mat = GetComponent<MeshRenderer>().material;
+        AlignWithGround();
     }
 
     // Update is called once per frame
@@ -56,5 +57,22 @@ public class Shockwave : MonoBehaviour
                 ec.takeDamage(1);
             }
         }
+    }
+
+    void AlignWithGround()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1000))
+        {
+            transform.position = hit.point;
+            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+        }
+        float positionCalculatedY = transform.position.y - Terrain.activeTerrain.SampleHeight(transform.position);
+        if (positionCalculatedY < 0.1f)
+        {
+            float pushHeight = 1 - positionCalculatedY;
+            transform.position += new Vector3(0, pushHeight, 0);
+        }
+
     }
 }
