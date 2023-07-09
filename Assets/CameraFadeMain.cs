@@ -25,7 +25,8 @@ public class CameraFadeMain : MonoBehaviour
 
     public int questNum;
 
-    public static bool beenToDungeon = false;
+    public bool beenToDungeon = false;
+    public bool forceFade = false;
 
     private void Start()
     {
@@ -85,6 +86,19 @@ public class CameraFadeMain : MonoBehaviour
             }
 
         }
+
+        if (forceFade)
+        {
+            alpha = 1f;
+            time = 0f;
+            direction = 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            forceFade = false;
+        }
+
     }
     public void OnGUI()
     {
@@ -104,6 +118,11 @@ public class CameraFadeMain : MonoBehaviour
             if (questNum == 1) { GUI.Label(new Rect(p1, p2, p3, p4), "QUEST: Take The Hero to the dungeon in the desert."); }
             if (questNum == 2) { GUI.Label(new Rect(p1, p2, p3, p4), "QUEST: Kill The Beast atop the mountain and through the forest."); }
             GUI.Label(new Rect(p5, p6, p7, p8), "Press Q to exit quest view.");
+        }
+        else if (forceFade)
+        {
+            GUI.Label(new Rect(p1, p2, p3, p4), "The Hero has conquered the dungeon and retrieved the magic arrows!");
+            GUI.Label(new Rect(p5, p6, p7, p8), "Press Q to exit.");
         }
         else
         {
