@@ -19,7 +19,7 @@ public class CameraFadeMain : MonoBehaviour
     public float p1, p2, p3, p4;
     public float p5, p6, p7, p8;
 
-    public Font myFont;
+    //public Font myFont;
 
     public string QuestString;
 
@@ -28,6 +28,8 @@ public class CameraFadeMain : MonoBehaviour
     public bool beenToDungeon = false;
     public bool forceFade = false;
 
+    public int size;
+
     private void Start()
     {
         if (startFadedOut) alpha = 1f; else alpha = 0f;
@@ -35,7 +37,7 @@ public class CameraFadeMain : MonoBehaviour
         texture.SetPixel(0, 0, new Color(fadeColor.r, fadeColor.g, fadeColor.b, alpha));
         texture.Apply();
 
-        p1 = (Screen.width / 2);
+        p1 = (Screen.width * 0.44f);
         p2 = (Screen.height / 2);
         p3 = 9999;
         p4 = 9999;
@@ -48,11 +50,13 @@ public class CameraFadeMain : MonoBehaviour
 
 
         //GUIStyle myStyle = new GUIStyle();
-        GUI.skin.font = myFont;
+        //GUI.skin.font = myFont;
 
         QuestString = "Go pick up The Hero.";
 
         questNum = 0;
+
+        
     }
 
     private void Update()
@@ -102,6 +106,11 @@ public class CameraFadeMain : MonoBehaviour
     }
     public void OnGUI()
     {
+        GUI.skin.label.fontSize = 20;
+
+        //var centeredStyle = GUI.skin.GetStyle("Label");
+        //centeredStyle.alignment = TextAnchor.MiddleCenter;
+
         if (alpha > 0f) GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), texture);
         if (direction != 0)
         {
