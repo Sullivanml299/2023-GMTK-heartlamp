@@ -6,16 +6,17 @@ using UnityEngine;
 
 public class ArrowProjectile : MonoBehaviour
 {
+    public float hitForce = 100f;
     private Rigidbody arrowRigidbody;
     [SerializeField] private Transform vfxHitEnemy;
     [SerializeField] private Transform vfxHitEnvironment;
-    
+
     [SerializeField] private float maxSpeed = 100f;
     //private Collider myCollider;
     // public float bulletHitScan = hitScanLength;
     public float timeRemaining = 3;
 
-    private void Awake() 
+    private void Awake()
     {
         arrowRigidbody = GetComponent<Rigidbody>();
     }
@@ -63,7 +64,7 @@ public class ArrowProjectile : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * 10.0f, Color.red);*/
     }
 
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
         //Destroy(gameObject);
         // if (other.GetComponent<BulletTarget>() != null)
@@ -80,5 +81,20 @@ public class ArrowProjectile : MonoBehaviour
         // }
 
         // Destroy(gameObject); 
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        EnemyController ec;
+        if (collision.gameObject.TryGetComponent<EnemyController>(out ec))
+        {
+            ec.takeDamage(1);
+            Vector3 direction = (collision.transform.position - transform.position).normalized;
+            direction += Vector3.up;
+
+            if (ec.tag == "Enemy") ec.applyForce(direction * hitForce);
+
+        }
+
     }
 }
