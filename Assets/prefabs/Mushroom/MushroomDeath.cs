@@ -18,7 +18,6 @@ public class MushroomDeath : EnemyBehavior
     public override void behaviorUpdate()
     {
         AnimatorStateInfo stateInfo = enemyData.animator.GetCurrentAnimatorStateInfo(0);
-        print(stateInfo.normalizedTime);
         if (stateInfo.normalizedTime >= 1)
         {
             Destroy(gameObject);

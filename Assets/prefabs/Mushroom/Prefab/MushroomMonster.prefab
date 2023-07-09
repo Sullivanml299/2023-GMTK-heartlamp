@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 4922208212874295539}
   - component: {fileID: 6195962632657531316}
   - component: {fileID: 5180474256340935662}
+  - component: {fileID: 5756877565324583709}
   m_Layer: 0
   m_Name: MushroomMonster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,8 +34,8 @@ Transform:
   m_GameObject: {fileID: 1382258774799692}
   m_LocalRotation: {x: 0, y: 1, z: -0, w: -0.0000001872535}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4627633284843166}
   - {fileID: 4110470248468810}
@@ -128,6 +129,7 @@ MonoBehaviour:
   attackBehavior: {fileID: 6195962632657531316}
   damageBehavior: {fileID: 0}
   deathBehavior: {fileID: 5180474256340935662}
+  hp: 1
 --- !u!114 &785641884141913577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6696a07708f071b4295563aa01228265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deaggroRange: 10
+  deaggroRange: 30
   attackRange: 2
   runSpeed: 5
 --- !u!114 &4922208212874295539
@@ -155,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11deb4e68d33de44ba7730b06cebeb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 5
+  aggroRange: 20
 --- !u!114 &6195962632657531316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +191,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puffPrefab: {fileID: 3137937995397708688, guid: 3b9ac98a016de3945973d46d924a3eac,
     type: 3}
+--- !u!114 &5756877565324583709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382258774799692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac34a77c77be4f34aa85fc3f7f8605ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 137209656802228900}
+  materials:
+  - {fileID: 2100000, guid: 38e7681924061aa479b000a07b8db69d, type: 2}
+  - {fileID: 2100000, guid: 454cace436225a047a0236e67b95f9e7, type: 2}
+  - {fileID: 2100000, guid: 233702e70a3d69942a1b79db9766052e, type: 2}
 --- !u!1 &1643898645384686
 GameObject:
   m_ObjectHideFlags: 0

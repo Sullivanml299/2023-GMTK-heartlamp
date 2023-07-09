@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -7453272064794704653}
   - component: {fileID: -2416497902822382708}
   - component: {fileID: 316497913888775372}
+  - component: {fileID: 6989637204880598135}
   m_Layer: 0
   m_Name: pfArrow
   m_TagString: Untagged
@@ -191,6 +192,27 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!65 &6989637204880598135
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8854285389291721337}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.45, y: 0.41, z: 17.76}
+  m_Center: {x: -0.03, y: -0.99, z: 0}
 --- !u!1001 &687871331244478388
 PrefabInstance:
   m_ObjectHideFlags: 0

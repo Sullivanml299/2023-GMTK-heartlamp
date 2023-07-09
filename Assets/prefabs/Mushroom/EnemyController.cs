@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
 
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,6 +79,13 @@ public class EnemyController : MonoBehaviour
     {
         hp -= damage;
         // setState(EnemyState.damage);
+    }
+
+    public void applyForce(Vector3 force)
+    {
+
+        if (enemyData.rigidbody != null && !enemyData.rigidbody.isKinematic)
+            enemyData.rigidbody.AddForce(force);
     }
 
 }
