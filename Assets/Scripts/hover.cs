@@ -55,7 +55,7 @@ public class hover : MonoBehaviour
             runMult = 1;
         }
 
-        if (Physics.Raycast(transform.position, -Vector3.up, hoverRayDist))
+        if (Physics.Raycast(transform.position, -Vector3.up, hoverRayDist*1.5f))
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -78,7 +78,7 @@ public class hover : MonoBehaviour
             //if (Input.GetKeyDown(KeyCode.Space))
            // {
                 //print("Flip!");
-                hb.AddForceAtPosition(Vector3.up * flipForce, transform.position + new Vector3(0.018f, 0.02f, 0f), ForceMode.Force);
+                hb.AddForceAtPosition(Vector3.up * flipForce, transform.position + new Vector3(0.05f, 0.03f, 0f), ForceMode.Force);
             //}
         }
     }

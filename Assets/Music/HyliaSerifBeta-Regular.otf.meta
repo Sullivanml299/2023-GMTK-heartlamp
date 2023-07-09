@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c0343571c2a6f88498454d5db8a8994e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Hylia Serif Beta
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d08070354ed483943ad063915276c9e9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

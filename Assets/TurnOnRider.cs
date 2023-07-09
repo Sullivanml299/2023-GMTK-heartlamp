@@ -21,7 +21,7 @@ public class TurnOnRider : MonoBehaviour
 
         horseAngle = Vector3.Angle(Vector3.up, transform.up);
 
-        if (horseAngle > 80 && rider.active == true) 
+        if (horseAngle > 90 && rider.active == true) 
         { 
             
             Instantiate(ragdoll, rider.transform.position, rider.transform.rotation);
