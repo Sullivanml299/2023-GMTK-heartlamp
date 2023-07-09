@@ -31,7 +31,7 @@ public class heroAim : MonoBehaviour
         print(arrowTarget.gameObject.tag);
         print(arrowTarget.target.name);
         //print(Vector3.Distance(arrowTarget.transform.position, transform.position));
-        var targetPosition = arrowTarget.target.gameObject.tag == "Boss" ? arrowTarget.transform.position + Vector3.up * 8f : arrowTarget.transform.position;
+        var targetPosition = arrowTarget.target.gameObject.tag == "Boss" ? arrowTarget.transform.position + Vector3.up * 8f : arrowTarget.transform.position + Vector3.up * 3f;
         Vector3 aimDir = (targetPosition - spawnArrowPosition.transform.position).normalized;
 
         if (bowDrawn)
