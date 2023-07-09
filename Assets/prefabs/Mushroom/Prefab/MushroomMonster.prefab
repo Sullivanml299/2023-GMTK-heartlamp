@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6696a07708f071b4295563aa01228265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deaggroRange: 30
+  deaggroRange: 70
   attackRange: 2
   runSpeed: 5
 --- !u!114 &4922208212874295539
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11deb4e68d33de44ba7730b06cebeb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 20
+  aggroRange: 70
 --- !u!114 &6195962632657531316
 MonoBehaviour:
   m_ObjectHideFlags: 0
