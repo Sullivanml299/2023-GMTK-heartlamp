@@ -13,6 +13,7 @@ public class FindTarget : MonoBehaviour
     void Start()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        hero = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -20,9 +21,9 @@ public class FindTarget : MonoBehaviour
     {
         GetTarget();
 
-        transform.position = target.transform.position;
+        if (target != null) transform.position = target.transform.position;
 
-    
+
     }
 
 
@@ -36,17 +37,29 @@ public class FindTarget : MonoBehaviour
 
         for (int i = 0; i < enemies.Length; i++)
         {
+            var enemy = enemies[i];
+            if (enemy == null)
+                continue;
 
-            float dist = Vector3.Distance(enemies[i].transform.position, hero.transform.position);
+            float dist = Vector3.Distance(enemy.transform.position, hero.transform.position);
 
             if (dist < lowestDist)
             {
                 lowestDist = dist;
-                target = enemies[i];
+                target = enemy;
             }
 
         }
 
+    }
+
+
+    void OnDrawGizmos()
+    {
+        if (target == null)
+            return;
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawSphere(target.transform.position, 1.0f);
     }
 
 }
